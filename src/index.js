@@ -13,8 +13,13 @@ class Main {
     this.maxDistance = 3;
     this.currentPos = 0;
     this.delta = 0.01;
+    this.isClicked = false;
 
     this.control.addEventListener("click", () => {
+      if (!this.isClicked) {
+        this.initAudio();
+        this.isClicked = !this.isClicked;
+      }
       if (this.isPlaying) {
         this.pause();
         this.updateControlTitle("Play");
@@ -24,7 +29,7 @@ class Main {
       }
       this.isPlaying = !this.isPlaying;
     });
-    this.initAudio();
+    // this.initAudio();
   }
 
   initAudio() {
